@@ -4,11 +4,11 @@ import QRAccess from '../components/QRAccess'
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList } from 'recharts'
 
 const OPTIONS = [
-  { key: 'A', text: 'Processos manuais com planilhas e papel' },
-  { key: 'B', text: 'Sistemas informatizados, mas isolados por secretaria' },
-  { key: 'C', text: 'Painel centralizado com dados básicos (BI)' },
-  { key: 'D', text: 'Integração parcial com sensores e câmeras' },
-  { key: 'E', text: 'Centro de operações com dados em tempo real e IA' },
+  { key: 'A', text: 'Processos manuais com planilhas e papel', insight: 'Nível 1 — A maioria dos municípios brasileiros está aqui. O primeiro passo é digitalizar e unificar os dados.' },
+  { key: 'B', text: 'Sistemas informatizados, mas isolados por secretaria', insight: 'Nível 2 — Bom começo! O próximo passo é integrar os sistemas entre secretarias com um data lake.' },
+  { key: 'C', text: 'Painel centralizado com dados básicos (BI)', insight: 'Nível 3 — Já tem visão consolidada. Hora de adicionar dados em tempo real e sensores IoT.' },
+  { key: 'D', text: 'Integração parcial com sensores e câmeras', insight: 'Nível 4 — Quase lá! Falta a camada de IA para transformar dados em decisões automáticas.' },
+  { key: 'E', text: 'Centro de operações com dados em tempo real e IA', insight: 'Nível 5 — Referência! Seu município já está na fronteira. O próximo passo é gêmeo digital e agentes autônomos.' },
 ]
 
 const BAR_COLORS = ['#FF6D00', '#1E90FF', '#00D4FF', '#00C853', '#7C4DFF']
@@ -126,9 +126,16 @@ export default function Quiz() {
               {submitting ? 'Enviando...' : 'Votar'}
             </button>
           ) : (
-            <div className="mt-3 flex items-center gap-2 text-city-green font-semibold text-sm">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-              Voto registrado!
+            <div className="mt-3">
+              <div className="flex items-center gap-2 text-city-green font-semibold text-sm mb-2">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                Voto registrado!
+              </div>
+              {selected && (
+                <p className="text-xs text-city-cyan/80 bg-city-cyan/10 rounded-lg px-3 py-2 border border-city-cyan/20">
+                  {OPTIONS.find(o => o.key === selected)?.insight}
+                </p>
+              )}
             </div>
           )}
 

@@ -22,9 +22,10 @@ interface CaseCardProps {
   color?: string
   image?: string
   sources?: Source[]
+  imageCaption?: string
 }
 
-export default function CaseCard({ city, country, metrics, highlight, description, color = '#1E90FF', image, sources }: CaseCardProps) {
+export default function CaseCard({ city, country, metrics, highlight, description, color = '#1E90FF', image, sources, imageCaption }: CaseCardProps) {
   const [lightbox, setLightbox] = useState(false)
 
   return (
@@ -51,6 +52,11 @@ export default function CaseCard({ city, country, metrics, highlight, descriptio
                 Ver em tela cheia
               </span>
             </div>
+            {imageCaption && (
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2">
+                <p className="text-[11px] text-white/90 font-medium leading-tight">{imageCaption}</p>
+              </div>
+            )}
           </button>
         )}
 
