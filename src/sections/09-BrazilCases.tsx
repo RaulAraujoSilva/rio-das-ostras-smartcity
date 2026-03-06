@@ -51,6 +51,7 @@ const CASES = [
     highlight: 'Segurança com IA',
     description: 'Piloto de visão computacional para segurança urbana em sandbox regulatório municipal (criado em abril 2023). Detecção de comportamento suspeito e botão de pânico com comunicação em tempo real com a polícia.',
     color: '#7C4DFF',
+    image: './img/sources/sjc-sandbox.png',
     sources: [
       { label: 'Sandbox regulatório — Prefeitura SJC', url: 'https://www.sjc.sp.gov.br/noticias/2024/dezembro/10/sandbox-seleciona-projetos-inovadores-em-sao-jose/' },
       { label: 'IA na segurança pública de SJC', url: 'https://informa.life/sao-jose-dos-campos-testa-sistema-de-ia-na-seguranca-publica/' },
@@ -68,6 +69,7 @@ const CASES = [
     highlight: 'Mobilidade Inteligente',
     description: 'Centro de Gerenciamento de Tráfego (CET-SP) com semáforos inteligentes: câmeras contam veículos e a IA ajusta os tempos em tempo real. Plano para 2.586 cruzamentos até o fim de 2026.',
     color: '#FF6D00',
+    image: './img/sources/saopaulo-cet.png',
     sources: [
       { label: 'CET-SP — Revitalização Semafórica', url: 'https://www.cetsp.com.br/consultas/seguranca-e-mobilidade/revitalizacao-semaforica.aspx' },
       { label: 'Semáforos inteligentes em SP (Exame)', url: 'https://exame.com/brasil/sp-instala-primeiros-semaforos-inteligentes-entenda-como-dispositivos-vao-impactar-o-transito/' },
