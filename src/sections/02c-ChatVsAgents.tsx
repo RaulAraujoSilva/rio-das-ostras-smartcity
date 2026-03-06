@@ -25,10 +25,10 @@ export default function ChatVsAgents() {
             <p>O tempo de tarefa que agentes completam <strong className="text-city-dark">dobra a cada ~4 meses</strong>.</p>
             <div className="flex items-center gap-3 py-2">
               <span className="px-2 py-1 bg-gray-100 rounded text-xs font-mono">GPT-4 (2023)</span>
-              <span className="text-gray-400">~5 horas</span>
+              <span className="text-gray-400">~24 min</span>
               <span className="text-city-orange font-bold">→</span>
               <span className="px-2 py-1 bg-green-50 rounded text-xs font-mono">Claude Opus 4.6 (2026)</span>
-              <span className="text-green-700 font-semibold">~870 horas</span>
+              <span className="text-green-700 font-semibold">~14,5 horas</span>
             </div>
             <p className="text-xs text-gray-500">Tarefas: engenharia de software, ML, cybersegurança. Medido por tempo de conclusão por especialistas humanos.</p>
           </div>

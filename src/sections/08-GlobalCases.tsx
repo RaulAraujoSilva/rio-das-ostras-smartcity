@@ -24,7 +24,7 @@ const CASES = [
     city: 'Hangzhou',
     country: 'China',
     metrics: [
-      { value: '3o→48o', label: 'ranking congestionamento' },
+      { value: '5o→57o', label: 'ranking trânsito (2018)' },
       { value: '20+', label: 'cidades implantadas' },
       { value: 'v3.0', label: 'City Brain (2025)' },
       { value: '24/7', label: 'policial virtual IA' },
