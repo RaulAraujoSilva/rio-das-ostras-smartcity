@@ -95,26 +95,29 @@ export default function WordCloudSection() {
 
   return (
     <Section id="wordcloud" title="O que você leva desta palestra?" subtitle="Em uma frase: o que implementaria no seu município?">
-      <div className="mb-10">
-        <QRAccess sectionId="wordcloud" label="Contribua pelo celular! Escaneie o QR Code:" dark={false} />
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-        <div>
+      <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_1fr] gap-6 items-stretch">
+        {/* QR Code — coluna estreita */}
+        <div className="hidden lg:block w-56">
+          <QRAccess sectionId="wordcloud" label="Contribua pelo celular!" dark={false} />
+        </div>
+
+        {/* Input — coluna central */}
+        <div className="flex flex-col">
           {!sent ? (
             <>
               <textarea
                 value={text}
                 onChange={e => setText(e.target.value.slice(0, 200))}
                 placeholder="Ex: Vou propor a integração das câmeras com o centro de defesa civil..."
-                className="w-full h-32 p-4 rounded-xl border-2 border-gray-200 bg-white text-city-dark text-sm leading-relaxed resize-none focus:border-city-blue focus:outline-none transition-colors"
+                className="w-full h-28 p-4 rounded-xl border-2 border-gray-200 bg-white text-city-dark text-sm leading-relaxed resize-none focus:border-city-blue focus:outline-none transition-colors"
                 maxLength={200}
               />
-              <div className="flex items-center justify-between mt-3">
-                <span className="text-xs text-gray-400">{text.length}/200 caracteres</span>
+              <div className="flex items-center justify-between mt-2">
+                <span className="text-xs text-gray-400">{text.length}/200</span>
                 <button
                   onClick={handleSubmit}
                   disabled={!text.trim() || submitting}
-                  className={`px-8 py-3 rounded-full font-bold text-white transition-all
+                  className={`px-6 py-2.5 rounded-full font-bold text-white text-sm transition-all
                     ${text.trim()
                       ? 'bg-city-navy hover:bg-city-blue shadow-lg cursor-pointer'
                       : 'bg-gray-300 cursor-not-allowed'
@@ -125,36 +128,40 @@ export default function WordCloudSection() {
               </div>
             </>
           ) : (
-            <div className="bg-city-light rounded-xl p-6">
-              <div className="flex items-center gap-2 text-city-green font-semibold mb-3">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+            <div className="bg-city-light rounded-xl p-5">
+              <div className="flex items-center gap-2 text-city-green font-semibold text-sm mb-2">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                 Comentário enviado! Obrigado.
               </div>
-              <p className="text-sm text-gray-500">
-                Sua contribuição já aparece na nuvem de palavras ao lado.
-              </p>
+              <p className="text-xs text-gray-500">Sua contribuição já aparece na nuvem ao lado.</p>
             </div>
           )}
 
           {comments.length > 0 && (
-            <div className="mt-6">
-              <h4 className="text-sm font-bold text-city-navy mb-3">
+            <div className="mt-4 flex-1 min-h-0">
+              <h4 className="text-xs font-bold text-city-navy mb-2">
                 Últimos comentários ({comments.length})
               </h4>
-              <div className="space-y-2 max-h-48 overflow-y-auto">
-                {[...comments].reverse().slice(0, 8).map((c, i) => (
-                  <div key={i} className="text-sm text-gray-600 bg-white p-3 rounded-lg border border-gray-100">
+              <div className="space-y-1.5 max-h-40 overflow-y-auto">
+                {[...comments].reverse().slice(0, 6).map((c, i) => (
+                  <div key={i} className="text-xs text-gray-600 bg-white p-2 rounded-lg border border-gray-100 truncate">
                     "{c}"
                   </div>
                 ))}
               </div>
             </div>
           )}
+
+          {/* QR mobile-only */}
+          <div className="mt-4 lg:hidden">
+            <QRAccess sectionId="wordcloud" label="Contribua pelo celular!" dark={false} />
+          </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 min-h-[360px]">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-city-navy">Nuvem de Palavras</h3>
+        {/* Nuvem de Palavras — coluna direita */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-5 flex flex-col min-h-[300px]">
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-base font-bold text-city-navy">Nuvem de Palavras</h3>
             <span className="flex items-center gap-1.5 text-xs text-gray-400">
               <span className="w-2 h-2 rounded-full bg-city-green animate-pulse" />
               {comments.length} {comments.length === 1 ? 'comentário' : 'comentários'}
@@ -162,11 +169,11 @@ export default function WordCloudSection() {
           </div>
 
           {words.length === 0 ? (
-            <div className="h-64 flex items-center justify-center text-gray-400 text-sm">
+            <div className="flex-1 flex items-center justify-center text-gray-400 text-sm">
               Aguardando primeiros comentários...
             </div>
           ) : (
-            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 py-4">
+            <div className="flex-1 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 py-2 overflow-hidden">
               {words.map((w, i) => (
                 <span
                   key={w.text}

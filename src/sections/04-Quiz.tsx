@@ -76,21 +76,24 @@ export default function Quiz() {
 
   return (
     <Section id="quiz" title="Qual a maturidade digital do seu município?" subtitle="Vamos começar entendendo onde estamos. Participe!" dark>
-      <div className="mb-10">
-        <QRAccess sectionId="quiz" label="Participe pelo celular! Escaneie o QR Code e vote:" />
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-        <div>
-          <p className="text-lg font-semibold text-city-cyan mb-5">
+      <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_1fr] gap-6 items-stretch">
+        {/* QR Code — coluna estreita */}
+        <div className="hidden lg:block w-56">
+          <QRAccess sectionId="quiz" label="Escaneie e vote pelo celular!" />
+        </div>
+
+        {/* Perguntas — coluna central */}
+        <div className="flex flex-col">
+          <p className="text-base font-semibold text-city-cyan mb-3">
             Qual dessas frases melhor descreve a situação do seu município hoje?
           </p>
-          <div className="space-y-3">
+          <div className="space-y-2 flex-1">
             {OPTIONS.map((o, i) => (
               <button
                 key={o.key}
                 onClick={() => !voted && setSelected(o.key)}
                 disabled={voted}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-start gap-3
+                className={`w-full text-left p-3 rounded-xl border-2 transition-all flex items-center gap-3
                   ${voted && selected === o.key
                     ? 'border-city-cyan bg-city-cyan/10 shadow-md'
                     : selected === o.key
@@ -100,12 +103,12 @@ export default function Quiz() {
                         : 'border-white/10 bg-white/5 hover:border-city-blue hover:bg-white/10 cursor-pointer'
                   }`}
               >
-                <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold shrink-0 text-white`}
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold shrink-0 text-white"
                   style={{ backgroundColor: selected === o.key ? BAR_COLORS[i] : '#374151' }}
                 >
                   {o.key}
                 </span>
-                <span className="text-sm text-white/90 leading-snug pt-1">{o.text}</span>
+                <span className="text-sm text-white/90 leading-snug">{o.text}</span>
               </button>
             ))}
           </div>
@@ -114,7 +117,7 @@ export default function Quiz() {
             <button
               onClick={handleVote}
               disabled={!selected || submitting}
-              className={`mt-5 px-8 py-3 rounded-full font-bold text-white transition-all
+              className={`mt-3 px-6 py-2.5 rounded-full font-bold text-white text-sm transition-all
                 ${selected
                   ? 'bg-city-cyan hover:bg-city-blue shadow-lg cursor-pointer'
                   : 'bg-gray-600 cursor-not-allowed'
@@ -123,16 +126,22 @@ export default function Quiz() {
               {submitting ? 'Enviando...' : 'Votar'}
             </button>
           ) : (
-            <div className="mt-5 flex items-center gap-2 text-city-green font-semibold">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-              Voto registrado! Obrigado pela participação.
+            <div className="mt-3 flex items-center gap-2 text-city-green font-semibold text-sm">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              Voto registrado!
             </div>
           )}
+
+          {/* QR mobile-only */}
+          <div className="mt-4 lg:hidden">
+            <QRAccess sectionId="quiz" label="Escaneie e vote pelo celular!" />
+          </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-white">Respostas ao Vivo</h3>
+        {/* Resultados — coluna direita */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 p-5 flex flex-col">
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-base font-bold text-white">Respostas ao Vivo</h3>
             <span className="flex items-center gap-1.5 text-xs text-white/50">
               <span className="w-2 h-2 rounded-full bg-city-green animate-pulse" />
               {votes.total} {votes.total === 1 ? 'voto' : 'votos'}
@@ -140,31 +149,33 @@ export default function Quiz() {
           </div>
 
           {votes.total === 0 ? (
-            <div className="h-64 flex items-center justify-center text-white/40 text-sm">
+            <div className="flex-1 flex items-center justify-center text-white/40 text-sm">
               Aguardando primeiros votos...
             </div>
           ) : (
-            <ResponsiveContainer width="100%" height={280}>
-              <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 50, left: 10, bottom: 5 }}>
-                <XAxis type="number" hide />
-                <YAxis type="category" dataKey="name" width={30} tick={{ fill: '#ffffff', fontWeight: 700, fontSize: 14 }} />
-                <Bar dataKey="votes" radius={[0, 8, 8, 0]} animationDuration={600}>
-                  {chartData.map((_, i) => (
-                    <Cell key={i} fill={BAR_COLORS[i]} />
-                  ))}
-                  <LabelList
-                    dataKey="votes"
-                    position="right"
-                    formatter={(v: unknown) => {
-                      const n = Number(v) || 0
-                      const pct = votes.total > 0 ? Math.round((n / votes.total) * 100) : 0
-                      return `${n}  (${pct}%)`
-                    }}
-                    style={{ fill: '#ffffff', fontWeight: 600, fontSize: 13 }}
-                  />
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
+            <div className="flex-1 min-h-0">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 50, left: 10, bottom: 5 }}>
+                  <XAxis type="number" hide />
+                  <YAxis type="category" dataKey="name" width={30} tick={{ fill: '#ffffff', fontWeight: 700, fontSize: 14 }} />
+                  <Bar dataKey="votes" radius={[0, 8, 8, 0]} animationDuration={600}>
+                    {chartData.map((_, i) => (
+                      <Cell key={i} fill={BAR_COLORS[i]} />
+                    ))}
+                    <LabelList
+                      dataKey="votes"
+                      position="right"
+                      formatter={(v: unknown) => {
+                        const n = Number(v) || 0
+                        const pct = votes.total > 0 ? Math.round((n / votes.total) * 100) : 0
+                        return `${n}  (${pct}%)`
+                      }}
+                      style={{ fill: '#ffffff', fontWeight: 600, fontSize: 13 }}
+                    />
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           )}
         </div>
       </div>
