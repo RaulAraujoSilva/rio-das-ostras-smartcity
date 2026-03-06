@@ -25,7 +25,7 @@ const CASES = [
     city: 'Curitiba',
     country: 'Brasil',
     metrics: [
-      { value: '100%', label: 'cobertura 5G' },
+      { value: '85%+', label: 'cobertura 5G (TIM)' },
       { value: '1a', label: 'Secretaria de IA' },
       { value: '2023', label: 'Smart City Award' },
       { value: 'SEDEIA', label: 'secretaria criada 2024' },
@@ -71,8 +71,8 @@ const CASES = [
     color: '#FF6D00',
     image: './img/sources/saopaulo-cet.png',
     sources: [
-      { label: 'CET-SP — Revitalização Semafórica', url: 'https://www.cetsp.com.br/consultas/seguranca-e-mobilidade/revitalizacao-semaforica.aspx' },
       { label: 'Semáforos inteligentes em SP (Exame)', url: 'https://exame.com/brasil/sp-instala-primeiros-semaforos-inteligentes-entenda-como-dispositivos-vao-impactar-o-transito/' },
+      { label: 'CET-SP — Revitalização Semafórica', url: 'https://www.cetsp.com.br/consultas/seguranca-e-mobilidade/revitalizacao-semaforica.aspx' },
     ],
   },
 ]

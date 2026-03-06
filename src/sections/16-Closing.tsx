@@ -70,7 +70,7 @@ export default function Closing() {
                 Apresentação interativa disponível em:
               </p>
               <p className="text-city-cyan font-mono text-sm mt-1">
-                [URL após deploy]
+                rio-das-ostras-smartcity.vercel.app
               </p>
             </div>
           </div>
