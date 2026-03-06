@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './sections/01-Hero'
 import Speaker from './sections/02-Speaker'
@@ -20,6 +21,22 @@ import WordCloudSection from './sections/15-WordCloud'
 import Closing from './sections/16-Closing'
 
 function App() {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1)
+    if (hash) {
+      const tryScroll = () => {
+        const el = document.getElementById(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        } else {
+          requestAnimationFrame(tryScroll)
+        }
+      }
+      // Wait for sections to render
+      setTimeout(tryScroll, 300)
+    }
+  }, [])
+
   return (
     <div className="relative">
       <Navbar />
