@@ -48,3 +48,11 @@ body {
   border-radius: 8px;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
 }
+
+/* Timeline LLMs animations */
+@keyframes popIn { from{transform:scale(.82);opacity:0} to{transform:scale(1);opacity:1} }
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+@keyframes todayPulse {
+  0%,100%{box-shadow:0 0 0 0 rgba(251,146,60,.6)}
+  60%{box-shadow:0 0 0 16px rgba(251,146,60,0)}
+}
