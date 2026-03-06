@@ -93,18 +93,19 @@ export default function BrazilCases() {
         viewport={{ once: true }}
         className="bg-gradient-to-r from-city-blue to-city-cyan rounded-2xl p-8 text-white text-center"
       >
-        <h3 className="text-2xl font-bold mb-3">E Rio das Ostras?</h3>
+        <h3 className="text-2xl font-bold mb-3">E o seu município?</h3>
         <p className="text-lg text-white/90 max-w-3xl mx-auto leading-relaxed mb-4">
-          Com a chegada do 5G — já disponível via TIM na região de Macaé–Rio das Ostras —
-          o município tem a <strong>oportunidade única</strong> de implementar um centro de
-          monitoramento inteligente <strong>desde o início</strong>, sem legado tecnológico.
-          Uma vantagem competitiva que grandes cidades não tiveram.
+          Com a expansão do 5G no Brasil, municípios de todos os portes têm a
+          <strong> oportunidade única</strong> de implementar centros de monitoramento
+          inteligente <strong>desde o início</strong>, sem legado tecnológico.
+          Como o seu município pretende alavancar essas novas tecnologias?
+          Em que estágio vocês estão?
         </p>
         <div className="flex flex-wrap justify-center gap-3 text-sm">
-          <span className="px-3 py-1.5 bg-white/20 rounded-full">📡 5G ativo na região</span>
-          <span className="px-3 py-1.5 bg-white/20 rounded-full">🏗️ Sem legado tecnológico</span>
-          <span className="px-3 py-1.5 bg-white/20 rounded-full">🎓 Proximidade com universidades</span>
-          <span className="px-3 py-1.5 bg-white/20 rounded-full">🛢️ Royalties de petróleo</span>
+          <span className="px-3 py-1.5 bg-white/20 rounded-full">📡 5G em expansão no Brasil</span>
+          <span className="px-3 py-1.5 bg-white/20 rounded-full">🏗️ Oportunidade de começar do zero</span>
+          <span className="px-3 py-1.5 bg-white/20 rounded-full">🎓 Parcerias com universidades</span>
+          <span className="px-3 py-1.5 bg-white/20 rounded-full">💡 Custo cada vez mais acessível</span>
         </div>
       </motion.div>
     </Section>
