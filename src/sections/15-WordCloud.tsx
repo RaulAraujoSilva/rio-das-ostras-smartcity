@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import Section from '../components/Section'
+import QRAccess from '../components/QRAccess'
 
 const STORAGE_KEY = 'smartcity-wordcloud-sent'
 const API_URL = '/api/wordcloud'
@@ -94,6 +95,9 @@ export default function WordCloudSection() {
 
   return (
     <Section id="wordcloud" title="O que você leva desta palestra?" subtitle="Em uma frase: o que implementaria no seu município?">
+      <div className="mb-10">
+        <QRAccess sectionId="wordcloud" label="Contribua pelo celular! Escaneie o QR Code:" dark={false} />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div>
           {!sent ? (

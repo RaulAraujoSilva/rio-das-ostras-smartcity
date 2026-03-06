@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import Section from '../components/Section'
+import QRAccess from '../components/QRAccess'
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList } from 'recharts'
 
 const OPTIONS = [
@@ -75,6 +76,9 @@ export default function Quiz() {
 
   return (
     <Section id="quiz" title="Qual a maturidade digital do seu município?" subtitle="Vamos começar entendendo onde estamos. Participe!" dark>
+      <div className="mb-10">
+        <QRAccess sectionId="quiz" label="Participe pelo celular! Escaneie o QR Code e vote:" />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div>
           <p className="text-lg font-semibold text-city-cyan mb-5">

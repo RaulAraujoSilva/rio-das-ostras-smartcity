@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import Section from '../components/Section'
+import QRAccess from '../components/QRAccess'
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList } from 'recharts'
 
 const OPTIONS = [
@@ -74,6 +75,9 @@ export default function Poll() {
 
   return (
     <Section id="poll" title="Qual a maior barreira?" subtitle="Na sua opinião, o que mais dificulta a implementação de IA na gestão do seu município?" dark>
+      <div className="mb-10">
+        <QRAccess sectionId="poll" label="Vote pelo celular! Escaneie o QR Code:" />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div>
           <div className="space-y-3">
