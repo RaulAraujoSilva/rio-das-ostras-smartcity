@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
 import Icon from '../components/Icon'
 
+const SITE_URL = 'https://rio-das-ostras-smartcity.vercel.app'
+const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(SITE_URL)}&bgcolor=0A1628&color=00D4FF&margin=4`
+
 export default function Closing() {
   return (
     <section
@@ -65,11 +68,17 @@ export default function Closing() {
               </a>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-white/10">
+            <div className="mt-4 pt-4 border-t border-white/10 flex flex-col items-center gap-3">
               <p className="text-xs text-white/50">
                 Apresentação interativa disponível em:
               </p>
-              <p className="text-city-cyan font-mono text-sm mt-1">
+              <img
+                src={qrSrc}
+                alt="QR Code para acessar a apresentação"
+                className="w-32 h-32 rounded-xl border-2 border-city-cyan/30 shadow-lg"
+                loading="eager"
+              />
+              <p className="text-city-cyan font-mono text-sm">
                 rio-das-ostras-smartcity.vercel.app
               </p>
             </div>

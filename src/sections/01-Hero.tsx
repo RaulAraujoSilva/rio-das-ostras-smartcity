@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion'
 
+const SITE_URL = 'https://rio-das-ostras-smartcity.vercel.app'
+const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(SITE_URL)}&bgcolor=0A1628&color=00D4FF&margin=4`
+
 export default function Hero() {
   return (
     <section
@@ -55,7 +58,23 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-12 flex flex-col items-center gap-2 text-white/50"
+          className="mt-10 flex flex-col items-center gap-3"
+        >
+          <p className="text-city-cyan text-sm font-semibold">Acesse a apresentação pelo celular</p>
+          <img
+            src={qrSrc}
+            alt="QR Code para acessar a apresentação"
+            className="w-36 h-36 rounded-xl border-2 border-city-cyan/30 shadow-lg"
+            loading="eager"
+          />
+          <p className="text-white/50 font-mono text-xs">rio-das-ostras-smartcity.vercel.app</p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="mt-6 flex flex-col items-center gap-2 text-white/50"
         >
           <span className="text-sm">Role para explorar</span>
           <motion.svg
