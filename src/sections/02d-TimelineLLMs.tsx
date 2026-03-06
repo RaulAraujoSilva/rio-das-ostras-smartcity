@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Section from '../components/Section'
 
 interface EventItem {
@@ -222,7 +222,7 @@ function Lane({ maker, onNodeClick, onHover, onLeave }: {
         border:"1px solid #1e1e24",borderRadius:"10px",marginBottom:"24px",
       }}>
         <div style={{
-          position:"absolute",top:"50%",left:"12px",right:"12px",
+          position:"absolute",top:"50%",left:"8px",right:"8px",
           height:"2px",transform:"translateY(-50%)",
           background:`linear-gradient(to right, transparent, ${mk.track} 6%, ${mk.track} 94%, transparent)`,
         }}/>
@@ -238,7 +238,7 @@ function Lane({ maker, onNodeClick, onHover, onLeave }: {
               {above && (
                 <div style={{
                   position:"absolute",bottom:"calc(100% + 8px)",left:"50%",
-                  transform:"translateX(-50%)",whiteSpace:"nowrap",textAlign:"center",pointerEvents:"none",
+                  transform:"translateX(-50%)",textAlign:"center",pointerEvents:"none",maxWidth:"100px",
                 }}>
                   <div style={{fontSize:"11px",fontWeight:700,color:isToday?"#fb923c":"#e2e8f0",lineHeight:1.2,marginBottom:"2px"}}>{ev.model}</div>
                   <div style={{fontSize:"9px",color:"#94a3b8",fontFamily:"monospace"}}>{fmtShort(ev.date)}</div>
@@ -250,7 +250,7 @@ function Lane({ maker, onNodeClick, onHover, onLeave }: {
                 onMouseMove={e=>onHover(e,ev)}
                 onMouseLeave={onLeave}
                 style={{
-                  width:"32px",height:"32px",borderRadius:"50%",
+                  width:"24px",height:"24px",borderRadius:"50%",
                   background:isToday?"#2c1306":mk.bg,
                   border:`2px solid ${isToday?"#fb923c":mk.accent}`,
                   display:"flex",alignItems:"center",justifyContent:"center",
@@ -269,7 +269,7 @@ function Lane({ maker, onNodeClick, onHover, onLeave }: {
                   (e.currentTarget as HTMLElement).style.zIndex="2";
                 }}
               >
-                <div style={{width:"12px",height:"12px",borderRadius:"50%",background:isToday?"#fb923c":mk.accent}}/>
+                <div style={{width:"8px",height:"8px",borderRadius:"50%",background:isToday?"#fb923c":mk.accent}}/>
                 {isToday&&(
                   <div style={{
                     position:"absolute",top:"-13px",right:"-24px",
@@ -283,7 +283,7 @@ function Lane({ maker, onNodeClick, onHover, onLeave }: {
               {!above && (
                 <div style={{
                   position:"absolute",top:"calc(100% + 8px)",left:"50%",
-                  transform:"translateX(-50%)",whiteSpace:"nowrap",textAlign:"center",pointerEvents:"none",
+                  transform:"translateX(-50%)",textAlign:"center",pointerEvents:"none",maxWidth:"100px",
                 }}>
                   <div style={{fontSize:"11px",fontWeight:700,color:isToday?"#fb923c":"#e2e8f0",lineHeight:1.2,marginBottom:"2px"}}>{ev.model}</div>
                   <div style={{fontSize:"9px",color:"#94a3b8",fontFamily:"monospace"}}>{fmtShort(ev.date)}</div>
@@ -301,16 +301,7 @@ function TimelineLLMsContent() {
   const [filter, setFilter]  = useState("all")
   const [modal,  setModal]   = useState<EventItem | null>(null)
   const [hov,    setHov]     = useState<{ ev: EventItem | null, pos: {x:number,y:number} | null }>({ ev:null, pos:null })
-  const boardRef = useRef<HTMLDivElement>(null)
   const ticks = getMonthTicks()
-
-  useEffect(()=>{
-    const el = boardRef.current
-    if (!el) return
-    const h = (e: WheelEvent) => { if(e.deltaY!==0){e.preventDefault();el.scrollLeft+=e.deltaY*2} }
-    el.addEventListener("wheel",h,{passive:false})
-    return ()=>el.removeEventListener("wheel",h)
-  },[])
 
   useEffect(()=>{
     const h = (e: KeyboardEvent) => { if(e.key==="Escape"){ setModal(null) } }
@@ -353,11 +344,11 @@ function TimelineLLMsContent() {
       </div>
 
       {/* Board */}
-      <div ref={boardRef} style={{
+      <div style={{
         background:"#0c0c0f",border:"1px solid #1e1e28",borderRadius:"16px",
-        padding:"28px 32px 20px",overflowX:"auto",
+        padding:"28px 16px 20px",overflow:"hidden",
       }}>
-        <div style={{minWidth:"1100px"}}>
+        <div>
           <div style={{
             position:"relative",height:"20px",marginBottom:"24px",
             borderBottom:"1px solid #1e1e28",
@@ -384,7 +375,7 @@ function TimelineLLMsContent() {
       <div style={{
         marginTop:"16px",textAlign:"center",fontSize:"11px",color:"#64748b",fontFamily:"monospace",
       }}>
-        Scroll horizontal com roda do mouse · Hover para preview · Clique para detalhes completos
+        Hover para preview · Clique para detalhes completos
       </div>
 
       <HoverCard ev={hov.ev} pos={hov.pos} />
