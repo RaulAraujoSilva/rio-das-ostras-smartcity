@@ -20,7 +20,10 @@ const CHALLENGES = [
     icon: 'scale',
     title: 'Viés Algorítmico',
     description: 'Modelos treinados em dados enviesados podem reforçar desigualdades sociais e geográficas. Auditoria contínua e testes de fairness são essenciais.',
-    sources: [] as ChallengeSource[],
+    sources: [
+      { label: 'Harvard — Algorithmic Fairness in Cities', url: 'https://datasmart.hks.harvard.edu/news/article/algorithmic-fairness-tackling-bias-city-algorithms' },
+      { label: 'CIDOB — AI Ethics in City Governance', url: 'https://www.cidob.org/en/publications/ai-ethics-policy-and-action-city-governance-algorithmic-decision-systems' },
+    ] as ChallengeSource[],
     color: '#FF6D00',
   },
   {
@@ -38,14 +41,19 @@ const CHALLENGES = [
     icon: 'link',
     title: 'Interoperabilidade',
     description: 'Evitar dependência de fornecedor único (vendor lock-in). Priorizar padrões abertos, APIs documentadas e soluções open-source.',
-    sources: [] as ChallengeSource[],
+    sources: [
+      { label: 'FIWARE + OASC — Open Standards for Cities', url: 'https://www.fiware.org/news/fiware-foundation-and-oasc-strengthen-ties-to-drive-open-standards-and-innovation-in-cities-and-regions/' },
+    ] as ChallengeSource[],
     color: '#1E90FF',
   },
   {
     icon: 'book-open',
     title: 'Capacitação',
     description: 'Formar equipe técnica local. Parcerias com universidades para transferência de conhecimento. Não basta comprar tecnologia — é preciso saber operá-la.',
-    sources: [] as ChallengeSource[],
+    sources: [
+      { label: 'UN-Habitat — Capacity Building for Smart Cities', url: 'https://unhabitat.org/programme/legacy/people-centered-smart-cities/building-capacity-for-people-centered-smart-cities-a' },
+      { label: 'UNITAC — Treinamento para cidades brasileiras', url: 'https://unitac.un.org/en/2025-trainings-to-city-leaders' },
+    ] as ChallengeSource[],
     color: '#00C853',
   },
 ]

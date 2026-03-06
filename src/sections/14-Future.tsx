@@ -12,12 +12,20 @@ const TRENDS = [
     title: 'IA Generativa Municipal',
     description: 'LLMs treinados em dados locais para auxiliar gestores. "Pergunte ao assistente da prefeitura" — consulta rápida de histórico, normas e recomendações.',
     color: '#7C4DFF',
+    sources: [
+      { label: 'Prefeitura SP — Simplifica AI', url: 'https://prefeitura.sp.gov.br/w/prefeitura-desenvolve-ferramenta-de-intelig%C3%AAncia-artificial-para-simplificar-documentos-da-administra%C3%A7%C3%A3o-p%C3%BAblica' },
+      { label: 'Oracle — 10 AI Use Cases for Local Gov', url: 'https://www.oracle.com/artificial-intelligence/ai-local-government/' },
+    ] as FutureSource[],
   },
   {
     icon: 'bot',
     title: 'Agentes Autônomos',
     description: 'Despacho automático de equipes, ajuste semafórico sem intervenção humana, respostas automáticas a chamados rotineiros do 156.',
     color: '#1E90FF',
+    sources: [
+      { label: 'TRENDS — AI Smart Traffic Systems', url: 'https://trendsresearch.org/insight/ai-integrated-smart-traffic-systems-for-carbon-neutral-cities/' },
+      { label: 'ArXiv — Autonomous Smart Traffic Management', url: 'https://arxiv.org/html/2410.10929v7' },
+    ] as FutureSource[],
   },
   {
     icon: 'globe',
