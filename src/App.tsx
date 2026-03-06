@@ -14,7 +14,7 @@ import GlobalCases from './sections/08-GlobalCases'
 import BrazilCases from './sections/09-BrazilCases'
 import Poll from './sections/10-Poll'
 import Roadmap from './sections/11-Roadmap'
-import Technologies from './sections/12-Technologies'
+
 import Challenges from './sections/13-Challenges'
 import Future from './sections/14-Future'
 import WordCloudSection from './sections/15-WordCloud'
@@ -66,7 +66,6 @@ function App() {
         {/* Acao */}
         <Poll />
         <Roadmap />
-        <Technologies />
 
         {/* Reflexao */}
         <Challenges />

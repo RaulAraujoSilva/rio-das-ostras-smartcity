@@ -16,7 +16,7 @@ const sections = [
   { id: 'brazil-cases', label: 'Casos Brasil', icon: 'map-pin' },
   { id: 'poll', label: 'Poll', icon: 'check-square' },
   { id: 'roadmap', label: 'Roadmap', icon: 'route' },
-  { id: 'technologies', label: 'Tecnologias', icon: 'settings' },
+
   { id: 'challenges', label: 'Desafios', icon: 'shield' },
   { id: 'future', label: 'Futuro', icon: 'arrow-up-right' },
   { id: 'wordcloud', label: 'Feedback', icon: 'message-circle' },
