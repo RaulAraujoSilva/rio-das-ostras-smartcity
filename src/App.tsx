@@ -3,8 +3,9 @@ import Navbar from './components/Navbar'
 import Hero from './sections/01-Hero'
 import Speaker from './sections/02-Speaker'
 import Evolution from './sections/02b-Evolution'
-import ChatVsAgents from './sections/02c-ChatVsAgents'
 import TimelineLLMs from './sections/02d-TimelineLLMs'
+import ChatVsAgents from './sections/02c-ChatVsAgents'
+import AINewModel from './sections/02e-AINewModel'
 import Context from './sections/03-Context'
 import Quiz from './sections/04-Quiz'
 import Vision from './sections/05-Vision'
@@ -47,8 +48,9 @@ function App() {
 
         {/* A IA Hoje */}
         <Evolution />
-        <ChatVsAgents />
         <TimelineLLMs />
+        <ChatVsAgents />
+        <AINewModel />
 
         {/* O Problema */}
         <Context />
