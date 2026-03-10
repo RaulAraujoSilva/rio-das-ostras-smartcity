@@ -17,7 +17,7 @@ import Poll from './sections/10-Poll'
 import Roadmap from './sections/11-Roadmap'
 
 import Challenges from './sections/13-Challenges'
-import Future from './sections/14-Future'
+// import Future from './sections/14-Future'
 import WordCloudSection from './sections/15-WordCloud'
 import Closing from './sections/16-Closing'
 
@@ -71,7 +71,7 @@ function App() {
 
         {/* Reflexao */}
         <Challenges />
-        <Future />
+        {/* <Future /> */}
         <WordCloudSection />
         <Closing />
       </main>

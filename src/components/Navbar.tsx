@@ -19,7 +19,7 @@ const sections = [
   { id: 'roadmap', label: 'Roadmap', icon: 'route' },
 
   { id: 'challenges', label: 'Desafios', icon: 'shield' },
-  { id: 'future', label: 'Futuro', icon: 'arrow-up-right' },
+  // { id: 'future', label: 'Futuro', icon: 'arrow-up-right' },
   { id: 'wordcloud', label: 'Feedback', icon: 'message-circle' },
   { id: 'closing', label: 'Encerramento', icon: 'check-circle' },
 ]
