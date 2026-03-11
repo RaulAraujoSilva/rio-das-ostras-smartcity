@@ -36,6 +36,20 @@ export default function Speaker() {
           </div>
           <h3 className="text-2xl font-bold text-city-navy mt-4">Raul Araújo da Silva</h3>
           <p className="text-city-blue font-semibold text-sm mt-1">Palestrante</p>
+
+          <div className="mt-4 bg-city-cyan/10 rounded-xl border border-city-cyan/20 p-4 text-center max-w-xs">
+            <p className="text-xs text-gray-600 leading-relaxed">
+              <Icon name="bot" size={14} className="inline text-city-blue mr-1 -mt-0.5" />
+              Tem dúvidas durante a palestra? Envie para o <strong>assistente virtual</strong> em
+            </p>
+            <a
+              href="mailto:raularaujo@crie.ufrj.br"
+              className="text-city-blue font-semibold text-sm hover:underline mt-1 inline-block"
+            >
+              raularaujo@crie.ufrj.br
+            </a>
+            <p className="text-[10px] text-gray-400 mt-1">Respostas em tempo real por IA</p>
+          </div>
         </motion.div>
 
         {/* Coluna 2-3: Bio + Formação */}
