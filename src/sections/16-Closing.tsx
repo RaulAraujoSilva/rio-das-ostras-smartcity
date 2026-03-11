@@ -33,9 +33,19 @@ export default function Closing() {
           <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
             Obrigado!
           </h2>
-          <p className="text-xl text-white/80 italic mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 italic mb-4 max-w-2xl mx-auto">
             "A melhor maneira de prever o futuro é construí-lo."
           </p>
+          <a
+            href="https://semaforo-por-ai.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-city-cyan hover:text-white transition-colors text-sm mb-8"
+          >
+            <Icon name="cpu" size={16} />
+            Veja um exemplo: Simulação de Semáforo controlado por IA
+            <Icon name="arrow-up-right" size={14} />
+          </a>
 
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 p-8 max-w-lg mx-auto">
             <div className="flex items-center gap-4 mb-4">
